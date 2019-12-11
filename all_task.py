@@ -57,10 +57,14 @@ while 1:
     
     if 'BANNED' in text:
         print('sleep for 30 seconds')
-        time.sleep(30)
+        timer = 0
+        while timer < 31:
+            print(timer)
+            time.sleep(1)
+            timer += 1
         sent_private_msg = False
         sent_result = False
-        continue
+        text = 'End of /NAMES list.'
     if 'PING' in text:
         msg = 'PONG {} \r\n'.format(text.split()[1])
         irc.send(msg.encode('utf-8'))
